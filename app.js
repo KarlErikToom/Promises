@@ -3,7 +3,7 @@ const emailRef = document.querySelector(".email");
 
 // 1. Then
 
-fetch("https://jsonplaceholder.typicode.com/users/1")
+/*fetch("https://jsonplaceholder.typicode.com/users/1")
   .then((respone) => {
     return respone.json();
   })
@@ -11,3 +11,17 @@ fetch("https://jsonplaceholder.typicode.com/users/1")
     console.log(data);
     emailRef.innerHTML = data.email
   });
+  
+*/
+
+
+
+// 2. Async/Await
+
+async function main(){
+    const response = await fetch("https://jsonplaceholder.typicode.com/users/1")
+    const data = await response.json()
+    console.log(data)
+    emailRef.innerHTML = data.email
+}
+main()
