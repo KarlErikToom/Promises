@@ -1,36 +1,19 @@
-const statusRef = document.querySelector(".status");
+const emailRef = document.querySelector(".email");
+//1. Then
+/* fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    emailRef.innerHTML = data.email
+  }); */
 
-function getSubscriptionStatus() {
-  return new Promise((resolve, reject) => {
-    resolve(undefined);
-  });
-}
-/*// 1.Then
-//getSubscriptionStatus().then((response) => console.log(response));
-
-// 2. Async/Await
-async function main() {
-  const status = await getSubscriptionStatus()
-  statusRef.innerHTML = status
-}
-main();
-*/
-
-function getVideo(subscriptionStatus) {
-  return new Promise((resolve, reject) => {
-    if (subscriptionStatus === "VIP") {
-      resolve("show video");
-    } else if (subscriptionStatus === "FREE") {
-      resolve("show trailer");
-    } else {
-      reject("no video");
-    }
-  });
-}
+//2. Async/Await
 
 async function main() {
-  const status = await getSubscriptionStatus();
-  statusRef.innerHTML = status;
-  console.log(await getVideo(status));
+ const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+ const data = await response.json()
+ emailRef.innerHTML = data.email
 }
+
 main();
